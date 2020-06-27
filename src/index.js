@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
+import { Route, /*Link,*/ Switch, BrowserRouter as Router } from 'react-router-dom'
 import './index.css';
 import Login from './container/Login/Login';
 import * as serviceWorker from './serviceWorker';
@@ -8,7 +8,9 @@ import * as serviceWorker from './serviceWorker';
 const routing = (
   <Router>
     <div>
-      <Route exact path="/" component={Login} />
+      <Switch>
+        <Route exact path="/" component={Login} />
+      </Switch>
     </div>
   </Router>
 )

@@ -1,15 +1,18 @@
-form {
-    margin: 10px;
+html, body{
+  width: 100%;
+  height: 100%;
+  background: #ccc;
+  /*background: rgb(0,61,255);*/
+  /*background: radial-gradient(circle, rgba(0,61,255,1) 35%, rgba(22,57,170,1) 100%);*/
 }
 
-@media all and (min-width: 480px) {
-    .Login {
-      padding: 60px 0;
-      margin: 0 auto;
-    }
-  
-    .Login form {
-      
-      max-width: 320px;
-    }
-  }
+form {
+    margin: 0px 10px 20px 10px;
+    width: calc(100% - 20px);
+}
+
+.Login{
+  position: absolute;
+  left: calc(50% - (345px / 2));
+  top: calc(50% - (374px / 2));
+}

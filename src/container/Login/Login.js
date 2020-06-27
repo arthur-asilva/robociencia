@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { FormGroup, FormControl } from "react-bootstrap";
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -10,10 +9,11 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import "../Login/Login.css";
+import LoginImage from '../../static/images/login-card-bg.jpg';
 
 const useStyles = makeStyles({
     root: {
-        maxWidth: 345,
+        width: 345,
     },
     media: {
         height: 140,
@@ -21,16 +21,13 @@ const useStyles = makeStyles({
 });
 
 export default function Login() {
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const classes = useStyles();
 
-    function validateForm() {
-        return email.length > 0 && password.length > 0;
-    }
-
-    function handleSubmit(event) {
-        event.preventDefault();
+    function handleSubmit() {
+        console.log(email + " " + password);
     }
 
     return (
@@ -39,23 +36,19 @@ export default function Login() {
                     <CardActionArea>
                         <CardMedia
                             className={classes.media}
-                            image="/static/images/cards/contemplative-reptile.jpg"
-                            title="Contemplative Reptile" />
+                            image={LoginImage}
+                            title="Login Image" />
                         <CardContent>
-                            <Typography gutterBottom variant="h5" component="h2">Lizard</Typography>
+                            <Typography gutterBottom variant="h5" component="h2">Login</Typography>
                         </CardContent>
                     </CardActionArea>
                     <form noValidate autoComplete="off">
-                        <TextField value={email}
-                        onChange={e => setEmail(e.target.value)} controlId="email" label="Standard" />
+                        <TextField fullWidth value={email} onChange={e => setEmail(e.target.value)} label="Usuário" />
+                        <br />
+                        <TextField fullWidth type="password" value={password} onChange={e => setPassword(e.target.value)} label="Senha" />
                     </form>
                     <CardActions>
-                        <Button size="small" color="primary">
-                            Share
-        </Button>
-                        <Button size="small" color="primary">
-                            Learn More
-        </Button>
+                        <Button onClick={() => handleSubmit()} size="small" color="primary">Entrar</Button>
                     </CardActions>
                 </Card>
         </div>
